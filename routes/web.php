@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MeowController;
+use App\Http\Controllers\MeowUnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+////    return view('welcome');
+//    return "";
+//});
+//
+//Route::get('/meows', function () {
+//    return "Liste des messages";
+//});
+//
+//Route::get('/meow/{id}', function ($id) {
+//    return "Message " . $id;
+//});
+
+Route::get('/', [HomeController::class, 'show']);
+
+Route::get('/meows', [MeowController::class, 'show']);
+
+Route::get('/meow/{id}', [MeowUnController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
