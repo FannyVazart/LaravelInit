@@ -22,7 +22,7 @@ class MessageFactory extends Factory
         return [
             'id' => fake()->uuid(),
             'message' => fake()->text(300),
-            'user_id' => rand(0, 20)
+            'user_id' => rand(1, 20),
         ];
     }
 }
