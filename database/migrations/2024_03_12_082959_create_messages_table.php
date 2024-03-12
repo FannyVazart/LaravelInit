@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('message', 300);
             $table->timestamps();
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 
@@ -24,5 +25,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('messages');
+    }
+
+    public function run(): void
+    {
+
     }
 };
